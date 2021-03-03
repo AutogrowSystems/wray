@@ -67,7 +67,7 @@ func (w msgWrapper) Channel() string              { return w.msg.Channel }
 // Ext returns a map of extension data.  As it is a map (and thus a pointer), changes
 // to the returned object will modify the content of this field in the message
 func (w msgWrapper) Ext() map[string]interface{} {
-	if len(w.msg.Ext) == 0 {
+	if w.msg.Ext == nil {
 		w.msg.Ext = map[string]interface{}{}
 	}
 	return w.msg.Ext
